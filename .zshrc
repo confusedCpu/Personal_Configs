@@ -83,3 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# Alias for yourtube-dl-mp3
+alias youtube-dl="youtube-dl-mp3"
+# Alias for youtube-dl-mp3 w/ video
+alias youtube-vdl="youtube-dl-mp3 -k"
