@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 9
+font = Monospace 12
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -20,7 +20,7 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
+browser = firefox
 
 # set size hints for the window
 #size_hints = false
@@ -63,7 +63,7 @@ color14 = #93e0e3
 color15 = #ffffff
 
 [hints]
-#font = Monospace 12
+font = Sans Noto 17
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
