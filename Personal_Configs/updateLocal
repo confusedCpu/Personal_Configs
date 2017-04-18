@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## This file updates or populates the config files from the github repo of the local user
+#
+## Future updates should include back ups of the most recent files before copy and testing for differences before a senseless copy
+
+# Update current branch
+git pull
+
+# Copy all dot files to ~/ 
+cp -r <(ls | egrep -E [[^".git"]] | cat) $HOME/
+echo All \'.\' files have been pushed to $HOME.
+
+# Dump every thing else into ~/.config
+cp -r <(ls | egrep -E [[:alpha:]] | cat) $HOME/.config/
+echo Everything else is in $HOME/.config.
+
+echo Done.
+
