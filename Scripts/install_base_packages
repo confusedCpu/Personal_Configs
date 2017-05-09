@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Install basic tools to get started
+  sudo pacman -Syu base-devel zsh make git curl vim xorg compton arandr nitrogen ranger waterfox 
+
+# checks for the existence of a source folder in the users home dir
+
+  if ! [-d $HOME/Src ]
+  then
+    mkdir -p $HOME/Src
+  fi
+  cd $HOME/Src
+
+# Install Zsh and Oh-My-Zsh for zsh themes
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Clones the package-query dependency for yaourt then builds it if not already installed
+  if ! [ -d $HOME/Src/package-query ]
+  then {
+    git clone https://aur.archlinux.org/package-query.git
+    cd $HOME/Src/package-query
+    makepkg -si
+    cd ..
+    }
+  fi
+
+# Clones yaourt and builds it if not already installed
+  if ! [ -d $HOME/Src/yaourt ]
+  then {
+    git clone https://aur.archlinux.org/yaourt.git
+    cd yaourt
+    makepkg -si
+    cd
+    }
+  fi
+
+# Updates systems with AUR packages and DE
+  yaourt -Syuab i3-gaps lightdm-webkit-* bumblebee-status
