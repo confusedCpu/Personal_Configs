@@ -1,7 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 # Install basic tools to get started
-  sudo pacman -Syu base-devel zsh make git curl vim xorg compton arandr nitrogen ranger waterfox 
+  sudo pacman -Syu base-devel zsh make git curl vim xorg arandr 
+# Creates a home dir if one is not there
+
+  if ! [ -d $HOME ]
+  then
+    mkdir -p /Home/$USER
+  fi
 
 # checks for the existence of a source folder in the users home dir
 
@@ -11,7 +17,7 @@
   fi
   cd $HOME/Src
 
-# Install Zsh and Oh-My-Zsh for zsh themes
+# Install Oh-My-Zsh for zsh themes
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Clones the package-query dependency for yaourt then builds it if not already installed
@@ -30,9 +36,46 @@
     git clone https://aur.archlinux.org/yaourt.git
     cd yaourt
     makepkg -si
-    cd
     }
   fi
 
-# Updates systems with AUR packages and DE
-  yaourt -Syuab i3-gaps lightdm-webkit-* bumblebee-status
+# Updates systems with AUR packages and DE tools
+  yaourt -Syuab i3-gaps-git conky compton xautolock i3bar lightdm lightdm-webkit2-greeter chronie \
+	  ranger alsa-firmware alsa-lib ffmpeg w3m vlc libreoffice-fresh gnome-disk-utility \
+	  testdisk parted ntfs-3g hfsprogs samba kerebos rust cargo-git g++ clamtk mutt \
+	  htop refind-efi
+
+# Download and install Pathogen for Vim plugins
+  mkdir -p ~/.vim/autoload ~/.vim/bundle 
+  sh -c "$(curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim)"
+
+# Creates the .vim dir and clones plugins from github
+  if ! [ -d $HOME/.vim ]
+  then 
+    mkdir $HOME/.vim
+  fi
+
+  vimPath=$HOME/.vim/bundle/
+
+  git clone https://github.com/scrooloose/nerdtree.git $vimPath # nerdTree
+
+  git clone https://github.com/vim-syntastic/syntastic.git $vimPath # syntastic
+
+  git clone https://github.com/vim-airline/vim-airline.git $vimPath # vim-airline
+
+  git clone https://github.com/airblade/vim-gitgutter.git $vimPath # vim-gitgutter
+
+  git clone https://github.com/ervandew/supertab.git $vimPath # supertab
+
+# Add services to systemd
+  systemctl enable lightdm xautolock
+
+# Set user settings
+  chsh -s /bin/zsh
+  echo "Shell has been changed to ZSH"
+
+# Move personal config files to $Home
+  cd $HOME/Src/Personal_Configs
+  cp -rfvL .zshrc .config .vimrc .conkyrc .bashrc $HOME/
+  echo "Config files have been copied to $HOME"
+
