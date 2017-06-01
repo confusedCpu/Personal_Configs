@@ -21,20 +21,20 @@
 		map <C-n> :NERDTreeToggle<CR>
 "VIM-AIRLINE
 "	Sets on by default
-		let laststatus = 2
+		"let laststatus = 2
 "	Sets smartbar on by default <false = 0; true = 1>
-		let g:airline#extensions#tabline#enabled = 1 
+		"let g:airline#extensions#tabline#enabled = 1 
 "	Sets vim-airline theme <favorite: murmur, *16>
-		let g:airline_theme_theme='murmur'
+		"let g:airline_theme_theme='murmur'
 "	Auto-populate the 'g:airline_symblos' directoy
-		let g:airline_powerline_fonts = 1		
+		"let g:airline_powerline_fonts = 1		
 "VIM-GITGUTTER
 "	Sets the update time for the automatic git diff
 		set updatetime=250
 "	Sets the git diff sign column to always on
 		let g:gitgutter_sign_column_always = 1
 "	Sets on by default
-		let g:gitgutter_enabled = 0
+		let g:gitgutter_enabled = 1
 "	Sets diff line highlighting by default
 		let g:gitgutter_lighlight_lines = 1
 "File Type Macros
