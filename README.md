@@ -1,2 +1,2 @@
 # Personal_Configs
-My personal config files for my desktop
+My personal config files for my computer
