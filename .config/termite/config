@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 12
+font =  AnonymousPro 12
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -20,10 +20,7 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = firefox
-
-# set size hints for the window
-#size_hints = false
+browser = waterfox 
 
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true
@@ -63,7 +60,7 @@ color14 = #93e0e3
 color15 = #ffffff
 
 [hints]
-font = Sans Noto 17
+#font = Sans Noto 12
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
@@ -72,5 +69,4 @@ font = Sans Noto 17
 #border = #3f3f3f
 #border_width = 0.5
 #roundness = 2.0
-
 # vim: ft=dosini cms=#%s
