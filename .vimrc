@@ -11,6 +11,17 @@
 		set number
 "	Sets logical line numbers for wrapped tex
 "		set relativenumber
+"	Sets number of spaces used with tab
+		set tabstop=4
+"	Sets existing Tabs to a number of spaces
+		set shiftwidth=4
+"   Makes backspace treat four sequential Spaces as a single character
+        set softtabstop=4
+"	Sets Tab to Spaces
+		set expandtab
+"	Automatically changes Tabs to Spaces when file is opened
+		retab
+"	
 "NERDTree
 "	Auto launch NERDTree if no file is slected
 		autocmd StdinReadPre * let s:std_in=1
