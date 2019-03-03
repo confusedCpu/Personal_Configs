@@ -1,0 +1,13 @@
+################################################################################
+# vim:ft=sh:ts=4
+# oscad - Opens openscad to render objects and vim to edit the code
+################################################################################
+
+if [ $# -ne 1 ]; then
+    echo $#
+    printf "Error - Only one file can be specified\n"
+    exit 1
+fi
+
+openscad $1 & 
+$EDITOR $1
