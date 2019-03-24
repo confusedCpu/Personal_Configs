@@ -1,0 +1,367 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/a/
+	..
+1549138200
+'b
+	/home/a/bin/
+	..
+1549138200
+'h
+	/home/a/
+	..
+1549138200
+'z
+	/home/a/.config/vifm
+	..
+1549138200
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	Pictures
+20
+d/mnt/Data/Pictures
+	wallpapers
+7
+d/mnt/Data/Pictures/wallpapers
+	..
+0
+d/mnt/Data/Pictures
+	..
+0
+d/mnt/Data
+	..
+0
+d/mnt
+	..
+0
+d/
+	home
+4
+d/home
+	a
+1
+d/home/a
+	Sketches
+8
+d/home/a/Sketches
+	..
+0
+d/home/a
+	..
+0
+d/home
+	..
+0
+d/
+	home
+4
+d/home
+	a
+1
+d/home/a
+	Pictures
+6
+d/home/a/Pictures
+	Datasheets
+1
+d/home/a/Pictures/Datasheets
+	..
+0
+d/home/a/Pictures
+	..
+0
+d/home/a
+	..
+0
+d/home
+	..
+0
+d/
+	mnt
+8
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	Data
+1
+d/mnt/Data
+	..
+0
+d/mnt
+	..
+0
+d/
+	usr
+17
+d/usr
+	bin
+1
+d/usr/bin
+	i3-sensible-terminal
+74
+d/usr
+	bin
+1
+d/
+	home
+4
+d/home
+	a
+1
+d/home/a
+	.bashrc
+35
+d/home
+	a
+1
+d/
+	mnt
+8
+d/mnt
+	Data
+1
+d/mnt/Data
+	Roms
+29
+d/mnt/Data/Roms
+	GBA
+1
+d/mnt/Data/Roms/GBA
+	..
+0
+d/mnt/Data/Roms
+	GameCube-Wii
+2
+d/mnt/Data/Roms/GameCube-Wii
+	..
+0
+d/mnt/Data/Roms
+	PS2
+3
+d/mnt/Data/Roms/PS2
+	..
+0
+d/mnt/Data/Roms
+	GBA
+1
+d/mnt/Data/Roms/GBA
+	..
+0
+d/mnt/Data/Roms
+	GBA
+1
+d/mnt/Data
+	ISO
+17
+d/mnt/Data/ISO
+	OS
+4
+d/mnt/Data/ISO/OS
+	Windows
+3
+d/mnt/Data/ISO/OS/Windows
+	fr_windows_8_1_enterprise_x86_dvd_2972298.iso
+10
+d/mnt/Data/ISO/OS
+	Windows
+3
+d/mnt/Data/ISO
+	OS
+4
+d/mnt/Data
+	Roms
+29
+d/mnt/Data/Roms
+	GBA
+1
+d/mnt/Data/Roms/GBA
+	..
+0
+d/mnt/Data/Roms
+	GBA
+1
+d/mnt/Data/Roms/GBA
+	..
+0
+d/mnt/Data/Roms
+	..
+0
+d/mnt/Data
+	Home
+16
+d/mnt/Data/Home
+	Games
+1
+d/mnt/Data/Home/Games
+	..
+0
+d/mnt/Data/Home
+	..
+0
+d/mnt/Data
+	..
+0
+d/mnt
+	..
+0
+d/
+	home
+4
+d/home
+	a
+1
+d/home/a
+	Games
+19
+d/home/a/Games
+	..
+0
+d/home/a
+	..
+0
+d/home
+	a
+1
+d/
+	mnt
+8
+d/mnt
+	Data
+1
+d/mnt/Data
+	Home
+16
+d/mnt/Data/Home
+	a
+3
+d/mnt/Data/Home/a
+	..
+0
+d/mnt/Data/Home
+	Games
+1
+d/mnt/Data/Home/Games
+	SteamGames
+2
+d/mnt/Data/Home/Games/SteamGames
+	common
+1
+d/mnt/Data/Home/Games/SteamGames/common
+	..
+0
+d/mnt/Data/Home/Games/SteamGames
+	..
+0
+d/mnt/Data/Home/Games
+	..
+0
+d/mnt/Data/Home
+	..
+0
+d/mnt/Data
+	Documents
+11
+d/mnt/Data/Documents
+	..
+0
+d/mnt/Data
+	Documents
+11
+d/mnt/Data/Documents
+	Books
+3
+d/mnt/Data/Documents/Books
+	n
+1
+d/mnt/Data/Documents/Books/n
+	h
+2
+d/mnt/Data/Documents/Books/n/h
+	Gyaku Anal Course
+8
+d/mnt/Data/Documents/Books/n/h/Gyaku Anal Course
+	2
+2
+d
+
+# Right window history (oldest to newest):
+D/home/a
+	var
+13
+D
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+/xterm
+/term
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0
