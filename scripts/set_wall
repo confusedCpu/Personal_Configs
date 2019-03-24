@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+################################################################################
+### Name: set_wall
+### Auth: a
+### Date: 2019-03-24
+###
+### Info: Sets the wallpaper, corresponding color scheme with pywal, and
+###	  creates a symbolic link to the current wallpaper at $HOME/.wallpaper
+################################################################################
+
+# If wallpaper is provided by stdin and is a real file
+if [[ $# == 1 && -f "${1}" ]]; then
+    WALLPAPER="${1}"
+else
+    # Get the contents of the wallpaper dir from the env variable and pick one 
+    # at random
+    if [ -d $WALLPAPERS ]; then 
+	IMAGES=(/mnt/Data/Pictures/wallpapers/*)
+	let INDEX=$(shuf -i 0-${#IMAGES[@]} -n 1)-1
+	WALLPAPER=${IMAGES[$INDEX]}
+    else
+	printf "ERROR: WALLPAPERS variable not set or dir does not exist\n"
+	notify-send "ERROR: WALLPAPERS variable not set or dir does not exist"
+    fi
+fi
+
+wal -i $WALLPAPER
+ln -sf $WALLPAPER $HOME/.wallpaper
+
+#vim: ts=4

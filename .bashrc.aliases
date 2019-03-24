@@ -1,0 +1,35 @@
+#
+# ~/.bashrc.aliases
+#
+
+alias ls='ls --color=auto'
+alias journalctl='sudo journalctl'
+alias pacu='sudo pacman -Syu --noconfirm'
+alias systemctl='sudo systemctl'
+alias se='ls /usr/bin | grep'
+
+if [[ $LANG = '' ]]; then
+    export LANG=en_US.UTF-8
+fi
+
+alias bashrc="${EDITOR} ${HOME}/.bashrc"
+alias i3config="${EDITOR} ${HOME}/.config/i3/config"
+alias xresources="${EDITOR} ${HOME}/.Xresources && xrdb ${HOME}/.Xresources"
+alias nvimrc="${EDITOR} ${CONFIGS}/nvim/init.vim"
+
+
+# Set EDITOR aliases 
+if [ $EDITOR = '/usr/bin/nvim' ]; then
+    alias {vi,vim}=$EDITOR
+elif [ $EDITOR = '/usr/bin/vim' ]; then
+    alias {nvim,vi}=$EDITOR
+elif [ $EDITOR = '/usr/bin/vi' ]; then
+    alias {nvim,vim}=$EDITOR
+else
+    alias {nvim,vim,vi}=$EDITOR
+fi
+
+# Use bat instead of cat
+if [ $(which bat) ]; then
+    alias cat="bat"
+fi
