@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+################################################################################
+### File: install
+### Auth: a
+### Date: 2019-3-25
+### Info: Update local copies of the config file and creates symbolic links
+################################################################################
+
+# TODO
+# create a merge function with an interactive option or clobber 
+# add getopts for clap
+
+################################################################################
+### Vars
+################################################################################
+
+CONFIGS=( config/* )	\
+SCRIPTS=( scripts/* )	\
+HOMIE_DIR=$(pwd)
+
+################################################################################
+### Config
+################################################################################
+
+# Make sure the config directorie exist
+if [ ! -d $HOME/.config ]; then
+    mkdir -p $HOME/.config
+fi
+
+for entry in ${CONFIGS[@]}; do
+    # If it is a file, symlink in home
+    if [ -f $entry ]; then
+	    printf "HOMIE: ${HOMIE_DIR}/${entry} -> ${HOME}/.$(basename ${entry})\n"
+	    ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.$(basename ${entry})"
+    # If it is a dir, remove existing dir in .config and symlink 
+    else
+	rm -rfv "${HOME}/.${entry}"
+	echo "HOMIE: ${HOMIE_DIR}/${entry} -> ${HOME}/.${entry}"
+	ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.${entry}"
+    fi
+done
+
+################################################################################
+### Scripts
+################################################################################
+
+if [ ! -d $HOME/.local/scripts ]; then
+    rm -rfv $HOME/.local/scripts
+fi
+
+# Symlink dir and leave it at that
+printf "HOMIE: ${HOMIE_DIR}/scripts -> ${HOME}/.local/scripts\n" 
+ln -sf "${HOMIE_DIR}/scripts" "${HOME}/.local/scripts"
+
+
+#vim: ts=4:ss=4:ff=sh
