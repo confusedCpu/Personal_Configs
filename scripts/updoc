@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+################################################################################
+### File: updoc
+### Auth: Alex Martin
+### Date: 2019-3-25
+### Lisc: BSD-3 
+### Info: Updates doc strings in setctions formated like this.
+################################################################################
+
+import yaml 

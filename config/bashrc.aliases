@@ -30,6 +30,6 @@ else
 fi
 
 # Use bat instead of cat
-if [ $(which bat) ]; then
+if [ -x /usr/bin/bat ]; then
     alias cat="bat"
 fi

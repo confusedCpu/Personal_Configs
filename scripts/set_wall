@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 ################################################################################
-### Name: set_wall
+### File: set_wall
 ### Auth: a
 ### Date: 2019-03-24
 ###
@@ -15,7 +15,7 @@ else
     # Get the contents of the wallpaper dir from the env variable and pick one 
     # at random
     if [ -d $WALLPAPERS ]; then 
-	IMAGES=(/mnt/Data/Pictures/wallpapers/*)
+	IMAGES=($WALLPAPERS/*)
 	let INDEX=$(shuf -i 0-${#IMAGES[@]} -n 1)-1
 	WALLPAPER=${IMAGES[$INDEX]}
     else
