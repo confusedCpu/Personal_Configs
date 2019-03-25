@@ -30,12 +30,13 @@ fi
 for entry in ${CONFIGS[@]}; do
     # If it is a file, symlink in home
     if [ -f $entry ]; then
-	    printf "HOMIE: ${HOMIE_DIR}/${entry} -> ${HOME}/.$(basename ${entry})\n"
+	    printf "HOMIE - LINKING: ${HOMIE_DIR}/${entry} -> ${HOME}/.$(basename ${entry})\n"
 	    ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.$(basename ${entry})"
     # If it is a dir, remove existing dir in .config and symlink 
     else
-	rm -rfv "${HOME}/.${entry}"
-	echo "HOMIE: ${HOMIE_DIR}/${entry} -> ${HOME}/.${entry}"
+	printf "HOMIE - DELETED: ${HOME}/.${entry}\n"
+	rm -rf "${HOME}/.${entry}"
+	printf "HOMIE - LINKING: ${HOMIE_DIR}/${entry} -> ${HOME}/.${entry}\n"
 	ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.${entry}"
     fi
 done
@@ -45,11 +46,12 @@ done
 ################################################################################
 
 if [ ! -d $HOME/.local/scripts ]; then
-    rm -rfv $HOME/.local/scripts
+    printf "HOMIE - DELETED: ${HOME}/.local/scripts\n"
+    rm -rf $HOME/.local/scripts
 fi
 
 # Symlink dir and leave it at that
-printf "HOMIE: ${HOMIE_DIR}/scripts -> ${HOME}/.local/scripts\n" 
+printf "HOMIE - LINKING: ${HOMIE_DIR}/scripts -> ${HOME}/.local/scripts\n" 
 ln -sf "${HOMIE_DIR}/scripts" "${HOME}/.local/scripts"
 
 
