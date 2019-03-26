@@ -49,9 +49,5 @@ export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
 ### Startup
 ################################################################################
 
-cat $HOME/.cache/wal/sequences &
-neofetch --distro_shorthand on	\
-		--kernel_shorthand on	\
-		--gtk3 off				\
-		--gtk2 off				\
-		--memory_percent on
+/usr/bin/cat $HOME/.cache/wal/sequences &
+neofetch 
