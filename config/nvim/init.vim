@@ -1,5 +1,6 @@
-" Setup dein
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Dein
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if &compatible
   set nocompatible
 endif
@@ -20,26 +21,82 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('neomake/neomake')
   call dein#add('raimondi/delimitmate')
   call dein#add('rust-lang/rust.vim')
+  call dein#add('klen/python-mode')
+  call dein#add('~/.local/share/dein/repos/github.com/python-mode/plugin/pymode.vim')
 
-  # Deoplete
+  "Deoplete
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  let g:deoplete#enable_at_startup = 1
 
   call dein#end()
   call dein#save_state()
 endif
 
+  "Deoplete Completion
+  call dein#add('Shougo/deoplete-clangx')
+  call dein#add('sebastianmarkow/deoplete-rust')
+  call dein#add('deoplete-plugins/deoplete-jedi')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number relativenumber
 filetype plugin indent on
 syntax enable
 
-" General
-set number relativenumber
+" If make file then adjust spacing for compatability
+if &filetype ==# 'make'
+    set tabstop=8
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+else
+    " Tell vim to interperet a \t as having a character width of X
+    set tabstop=4
+    " Sets indent character width to X
+    set shiftwidth=4
+    " Sets the number of columns consumed by a tab
+    set softtabstop=4
+    " Convert tabs to spaces
+    set expandtab
+endif
 
-" Syntastic
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Deoplete General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Deoplete Clangx
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+call deoplete#custom#var('clangx', 'default_c_options', '')
+call deoplete#custom#var('clangx', 'default_cpp_options', '')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Deoplete Jedi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+g:deoplete#sources#jedi#statement_length = 80
+g:deoplete#sources#jedi#enable_typeinfo = 1
+g:deoplete#sources#jedi#show_docstring = 1
+" g:deoplete#sources#jedi#extra_path = ''
+g:deoplete#sources#jedi#ignore_errors = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Deoplete Rust
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/.local/src/rust/src'
+let g:deoplete#sources#rust#show_duplicates=1
+let g:deoplete#sources#rust#documentation_max_height=20
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -49,7 +106,9 @@ set number relativenumber
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 
-" Nerd Tree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Nerd Tree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open NerdTree if no file specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
