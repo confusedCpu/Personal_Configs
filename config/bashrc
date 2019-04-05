@@ -28,13 +28,13 @@ PATH="${SCRIPTS}:${BIN}:${RUST}:${PATH}"
 # set EDITOR
 if [ -e /usr/bin/nvim ]; then
     export EDITOR=/usr/bin/nvim
-	alias vimrc="${EDITOR} ${HOME}/.config/nvim/init.vim"
+	#alias vimrc="${EDITOR} ${HOME}/.config/nvim/init.vim"
 elif [ -e /usr/bin/vim ]; then
     export EDITOR=/usr/bin/vim
-	alias vimrc="${EDITOR} ${HOME}/.config/vimrc"
+	#alias vimrc="${EDITOR} ${HOME}/.config/vimrc"
 else
     export EDITOR=/usr/bin/vi
-	alias vimrc="printf \"INFO - System uses Vi\n\""
+	#alias vimrc="printf \"INFO - System uses Vi\n\""
 fi
 
 
@@ -51,3 +51,7 @@ export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
 
 /usr/bin/cat $HOME/.cache/wal/sequences &
 neofetch 
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ${HOME}/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh

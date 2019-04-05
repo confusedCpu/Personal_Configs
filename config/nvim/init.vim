@@ -46,6 +46,9 @@ endif
 set number relativenumber
 filetype plugin indent on
 syntax enable
+set laststatus=2
+set showtabline=2
+set noshowmode
 
 " If make file then adjust spacing for compatability
 if &filetype ==# 'make'
@@ -80,11 +83,11 @@ call deoplete#custom#var('clangx', 'default_cpp_options', '')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Deoplete Jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-g:deoplete#sources#jedi#statement_length = 80
-g:deoplete#sources#jedi#enable_typeinfo = 1
-g:deoplete#sources#jedi#show_docstring = 1
-" g:deoplete#sources#jedi#extra_path = ''
-g:deoplete#sources#jedi#ignore_errors = 0
+let g:deoplete#sources#jedi#statement_length = 80
+let g:deoplete#sources#jedi#enable_typeinfo = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+" let g:deoplete#sources#jedi#extra_path = ''
+let g:deoplete#sources#jedi#ignore_errors = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Deoplete Rust
@@ -122,3 +125,13 @@ map <C-n> :NERDTreeToggle<CR>
 " Change default arrows
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Powerline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:powerline_pycmd="py3"
+set rtp+=${HOME}/.local/lib/python3.7/site-packages/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
