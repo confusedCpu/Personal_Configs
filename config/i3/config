@@ -32,7 +32,7 @@ new_float normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec termite
 bindsym $mod+space exec rofi -show run
 
 # kill focused window
@@ -242,4 +242,5 @@ exec --no-startup-id nm-applet &
 exec --no-startup-id xscreensaver &
 exec --no-startup-id redshift &
 #exec --no-startup-id urxvtd -q -o -f
-exec_always --no-startup-id /polybar_launch &
+exec --no-startup-id wal -r
+exec --no-startup-id ${HOME}/.local/scripts/polybar_launch &

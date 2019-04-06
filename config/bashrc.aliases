@@ -33,7 +33,7 @@ fi
 #fi
 
 case "${EDITOR}" in 
-    "/usr/bin/neovim")
+    "/usr/bin/nvim")
         alias {vi,vim}=$EDITOR
         alias vimrc="${EDITOR} ${HOME}/.config/nvim/init.vim"
         ;;

@@ -15,11 +15,15 @@ PS1='[\u@\h \W]\$ '
 # dirs
 BIN=${HOME}/.local/bin		
 CONFIGS=${HOME}/.config		
+QUOTES=${HOME}/.config/mental/quotes
 RUST=${HOME}/.cargo/bin		
 SCRIPTS=${HOME}/.local/scripts	
 SRC=${HOME}/.local/src	
 STEAM_DIR=${HOME}/.steam/root
 WALLPAPERS=${HOME}/Pictures/wallpapers
+
+# Homie repo
+HOMIE="${SRC}/homie"
 					
 # path				
 PATH="${SCRIPTS}:${BIN}:${RUST}:${PATH}"
@@ -51,6 +55,7 @@ export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
 
 /usr/bin/cat $HOME/.cache/wal/sequences &
 neofetch 
+mental
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

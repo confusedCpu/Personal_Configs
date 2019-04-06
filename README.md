@@ -1,2 +1,2 @@
-# HOMIE
-My personal configs and scripts collection
+# Scripts
+## The things I have written and may need again
