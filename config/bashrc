@@ -53,7 +53,7 @@ export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
 ### Startup
 ################################################################################
 
-/usr/bin/cat $HOME/.cache/wal/sequences &
+/usr/bin/cat $HOME/.cache/wal/sequences 
 neofetch 
 mental
 powerline-daemon -q

@@ -43,12 +43,16 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set number relativenumber
 filetype plugin indent on
 syntax enable
+
+set number 
+set relativenumber
 set laststatus=2
 set showtabline=2
 set noshowmode
+set splitbelow
+set splitright
 
 " If make file then adjust spacing for compatability
 if &filetype ==# 'make'
@@ -66,6 +70,14 @@ else
     " Convert tabs to spaces
     set expandtab
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Keybindings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
