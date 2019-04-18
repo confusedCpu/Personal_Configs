@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Set prompt
-PS1='[\u@\h \W]\$ '
+PS1='\u \$ '
 
 ################################################################################
 ### ENV VARS
@@ -47,7 +47,23 @@ if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
 fi
 
+# Source machine specific aliases
+if [ -e ~/.local.aliases ]; then
+    source ~/.local.aliases
+fi
+
 export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
+
+################################################################################
+### Functions
+################################################################################
+
+function setup_powerline () {
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . ${HOME}/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+}
 
 ################################################################################
 ### Startup
@@ -56,7 +72,4 @@ export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
 /usr/bin/cat $HOME/.cache/wal/sequences 
 neofetch 
 mental
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. ${HOME}/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+setup_powerline
