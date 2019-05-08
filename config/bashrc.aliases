@@ -2,10 +2,10 @@
 # ~/.bashrc.aliases
 #
 
-alias aliases="${EDITOR} ${HOME}/.bashrc.aliases"
+alias aliases="${EDITOR} ${HOME}/.bashrc.aliases && source ${HOME}/.bashrc.aliases"
 alias bashrc="${EDITOR} ${HOME}/.bashrc && source ${HOME}/.bashrc"
 alias i3config="${EDITOR} ${HOME}/.config/i3/config"
-alias ls='ls --color=auto'
+alias ls='ls --color=no'
 alias sl='ls'
 alias journalctl='sudo journalctl'
 alias pacu='sudo pacman -Syu --noconfirm'
@@ -13,6 +13,7 @@ alias python='python3'
 alias nvimrc="${EDITOR} ${CONFIGS}/nvim/init.vim"
 alias systemctl='sudo systemctl'
 alias se='ls /usr/bin | grep'
+#alias vcal=ADD_VIM.CALENDAR cmd
 alias xresources="${EDITOR} ${HOME}/.Xresources && xrdb ${HOME}/.Xresources"
 
 if [[ $LANG = '' ]]; then

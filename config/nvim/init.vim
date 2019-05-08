@@ -23,6 +23,14 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('rust-lang/rust.vim')
   call dein#add('klen/python-mode')
   call dein#add('~/.local/share/dein/repos/github.com/python-mode/plugin/pymode.vim')
+  "call dein#add('autozimu/LanguageClient-neovim')
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('eiiches/vim-rainbowbrackets')
+  call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('ryanolsonx/vim-lsp-python')
+  call dein#add('itchyny/calendar.vim')
+
+
 
   "Deoplete
   call dein#add('Shougo/deoplete.nvim')
@@ -47,12 +55,13 @@ filetype plugin indent on
 syntax enable
 
 set number 
-set relativenumber
 set laststatus=2
-set showtabline=2
 set noshowmode
+set relativenumber
+set showtabline=2
 set splitbelow
 set splitright
+
 
 " If make file then adjust spacing for compatability
 if &filetype ==# 'make'
@@ -69,17 +78,22 @@ else
     set softtabstop=4
     " Convert tabs to spaces
     set expandtab
-endif
-
+endif 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Keybindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Split navigation
+" Split navigation similar to i3 motions
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
+" LanguageClient-Neovim
+"nnoremap T : call LanguageClient_contextMenu()<CR>
+"noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+"noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
+"noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
+"noremap <silent> S :call LanguageClient_textDocument_documentSymbol()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Deoplete General
@@ -111,16 +125,14 @@ let g:deoplete#sources#rust#show_duplicates=1
 let g:deoplete#sources#rust#documentation_max_height=20
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Syntastic
+""" LanguageClient-Neovim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+"let g:LanguageClient_autoStart = 1
+"let g:LanguageClient_serverCommands = {
+    "\ 'python': ['pyls'],
+    "\ 'rust': ['rustup', 'run', 'nightly', 'rls']
+"\} 
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Nerd Tree
@@ -139,12 +151,83 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Powerline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:powerline_pycmd="py3"
-set rtp+=${HOME}/.local/lib/python3.7/site-packages/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"let g:powerline_pycmd="python3"
+"set rtp+=~/.local/lib/python3.7/site-packages/powerline/bindings/vim
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Calendar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+let g:calendar_task= 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Rainbowbrackets
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rainbowbrackets_enable_round_brackets = 1
+let g:rainbowbrackets_enable_curly_brackets = 1
+let g:rainbowbrackets_enable_square_brackets = 1
+let g:rainbowbrackets_enable_angle_brackets = 1
+
+let g:rainbowbrackets_colors =
+            \ [
+            \   'ctermfg=9',
+            \   'ctermfg=10',
+            \   'ctermfg=33',
+            \   'ctermfg=190'
+            \ ]
+call rainbowbrackets#update()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-lsp
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
+" Clang
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+" python
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+" rust
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif

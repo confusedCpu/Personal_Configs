@@ -14,17 +14,24 @@
 ### Vars
 ################################################################################
 
+# Check if homie env var is set, else, find it
+if [ -z $HOMIE ]; then
+    HOMIE_DIR=$(find $HOME -name "homie")
+else
+    HOMIE_DIR=$HOMIE
+fi
 CONFIGS=( config/* )
 SCRIPTS=( scripts/* )
-HOMIE_DIR=$(pwd)
 
 ################################################################################
 ### Config
 ################################################################################
 
-# Make sure the config directorie exist
+# Make sure the config directory exist
 if [ ! -d $HOME/.config ]; then
     mkdir -p $HOME/.config
+else
+    cp -ru $HOME/.config $HOMIE_DIR/config
 fi
 
 for entry in ${CONFIGS[@]}; do
@@ -46,6 +53,8 @@ done
 ################################################################################
 
 if [ ! -d $HOME/.local/scripts ]; then
+    cp -ru  $HOME/.local/scripts/* $HOMIE_DIR/scripts
+    printf "HOMIE - Merged: ${HOME}/.local/scripts -> ${HOMIE_DIR}/scripts\n"
     printf "HOMIE - DELETED: ${HOME}/.local/scripts\n"
     rm -rf $HOME/.local/scripts
 fi

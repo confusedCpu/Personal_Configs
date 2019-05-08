@@ -6,7 +6,8 @@
 [[ $- != *i* ]] && return
 
 # Set prompt
-PS1='\u \$ '
+PS1='\n\t || \w\n\$ '
+PS2='► '
 
 ################################################################################
 ### ENV VARS
@@ -52,7 +53,7 @@ if [ -e ~/.local.aliases ]; then
     source ~/.local.aliases
 fi
 
-export BIN CONFIGS EDITOR PATH SRC SCRIPTS STEAM_DIR WALLPAPERS
+export BIN CONFIGS EDITOR PATH PS1 PS2 SRC SCRIPTS STEAM_DIR WALLPAPERS 
 
 ################################################################################
 ### Functions
@@ -72,4 +73,4 @@ function setup_powerline () {
 /usr/bin/cat $HOME/.cache/wal/sequences 
 neofetch 
 mental
-setup_powerline
+#setup_powerline
