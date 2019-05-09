@@ -13,7 +13,7 @@ alias python='python3'
 alias nvimrc="${EDITOR} ${CONFIGS}/nvim/init.vim"
 alias systemctl='sudo systemctl'
 alias se='ls /usr/bin | grep'
-#alias vcal=ADD_VIM.CALENDAR cmd
+alias vcal='$EDITOR "+Calendar"'
 alias xresources="${EDITOR} ${HOME}/.Xresources && xrdb ${HOME}/.Xresources"
 
 if [[ $LANG = '' ]]; then
