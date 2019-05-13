@@ -29,8 +29,9 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('ryanolsonx/vim-lsp-python')
   call dein#add('itchyny/calendar.vim')
-
-
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('airblade/vim-gitgutter')
 
   "Deoplete
   call dein#add('Shougo/deoplete.nvim')
@@ -162,30 +163,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Vim-Calendar
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-let g:calendar_task= 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Vim-Rainbowbrackets
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rainbowbrackets_enable_round_brackets = 1
-let g:rainbowbrackets_enable_curly_brackets = 1
-let g:rainbowbrackets_enable_square_brackets = 1
-let g:rainbowbrackets_enable_angle_brackets = 1
-
-let g:rainbowbrackets_colors =
-            \ [
-            \   'ctermfg=9',
-            \   'ctermfg=10',
-            \   'ctermfg=33',
-            \   'ctermfg=190'
-            \ ]
-call rainbowbrackets#update()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set statusline+=%#warningmsg#
@@ -196,6 +173,31 @@ call rainbowbrackets#update()
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'base16-spacemacs'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Calendar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+let g:calendar_task= 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Gitgutter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:gitgutter_sign_column_always =1 "Depreciated use 'set signcolumn = yes'
+let g:gitgutter_signs = 1
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,3 +233,24 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Vim-Rainbowbrackets
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rainbowbrackets_enable_round_brackets = 1
+let g:rainbowbrackets_enable_curly_brackets = 1
+let g:rainbowbrackets_enable_square_brackets = 1
+let g:rainbowbrackets_enable_angle_brackets = 1
+
+let g:rainbowbrackets_colors =
+            \ [
+            \   'ctermfg=9',
+            \   'ctermfg=10',
+            \   'ctermfg=33',
+            \   'ctermfg=190'
+            \ ]
+call rainbowbrackets#update()
+
+
+
