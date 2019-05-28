@@ -5,6 +5,7 @@
 alias aliases="${EDITOR} ${HOME}/.bashrc.aliases && source ${HOME}/.bashrc.aliases"
 alias bashrc="${EDITOR} ${HOME}/.bashrc && source ${HOME}/.bashrc"
 alias i3config="${EDITOR} ${HOME}/.config/i3/config"
+alias logoff="killall -KILL -u $(whoami)"
 alias ls='ls --color=no'
 alias sl='ls'
 alias journalctl='sudo journalctl'

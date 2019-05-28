@@ -45,6 +45,8 @@ module-margin       = 1
 background          = #5a000000
 foreground          = #eee
 
+underline-size      = 2
+underline-color     = #eee
 
 font-0              = Fira Code,Fira Code Retina:style=Retina,Regular:size=10
 font-1              = Siji:style=Regular:size=10
@@ -53,7 +55,7 @@ font-3              = FontAwesome:style=Medium:size=10
 
 modules-left        = xworkspaces xwindow
 modules-center      = 
-modules-right       = network pulseaudio date 
+modules-right       = network pulseaudio date power
 
 tray-position       = right
 tray-transparent    = true
@@ -75,6 +77,14 @@ interface           = enp1s0
 interval            = 1.0
 label-connected     = ↘ %downspeed% ↗ %upspeed%
 
+[module/power]
+type = custom/menu
+menu-0-0 = 
+menu-0-0-exec = menu-open-1
+menu-1-0 = logoff
+
+
+
 [module/pulseaudio]
 type                = internal/pulseaudio
 use-ui-max          = true
@@ -87,5 +97,11 @@ type                = internal/xwindow
 label-maxlen        = 25
 
 [module/xworkspaces]
-type                = internal/xworkspaces
-label-active        = %icon% %name%
+type                        = internal/xworkspaces
+label-active                = %icon% %name%
+label-active-background     = #8a000000
+label-padding               = 4
+icon-0                      = 1;一
+icon-1                      = 2;二
+icon-2                      = 3;三
+icon-3                      = 4;四

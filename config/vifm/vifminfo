@@ -6,13 +6,13 @@
 	..
 1549138200
 'b
-	/home/a/bin/
+	/home/martinak@RAMS.adp.vcu.edu/bin/
 	..
-1549138200
+1557851805
 'h
-	/home/a/
+	/home/martinak@RAMS.adp.vcu.edu/
 	..
-1549138200
+1557851805
 'z
 	/home/a/.config/vifm
 	..
@@ -30,57 +30,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	Pictures
-20
-d/mnt/Data/Pictures
-	wallpapers
-7
-d/mnt/Data/Pictures/wallpapers
-	..
-0
-d/mnt/Data/Pictures
-	..
-0
-d/mnt/Data
-	..
-0
-d/mnt
-	..
-0
-d/
-	home
-4
 d/home
 	a
 1
@@ -330,12 +279,66 @@ d/mnt/Data/Documents/Books/n/h
 d/mnt/Data/Documents/Books/n/h/Gyaku Anal Course
 	2
 2
+d/mnt/ees
+	x64
+50
+d/mnt/ees/x64
+	Office2019
+12
+d/mnt/ees/x64/Office2019
+	Office
+2
+d/mnt/ees/x64/Office2019/Office
+	Office
+1
+d/mnt/ees/x64/Office2019/Office/Office
+	Data
+1
+d/mnt/ees/x64/Office2019/Office/Office/Data
+	..
+0
+d/mnt/ees/x64/Office2019/Office/Office
+	Data
+1
+d/mnt/ees/x64/Office2019/Office/Office/Data
+	..
+0
+d/mnt/ees/x64/Office2019/Office/Office
+	..
+0
+d/mnt/ees/x64/Office2019/Office
+	..
+0
+d/mnt/ees/x64/Office2019
+	MAK
+1
+d/mnt/ees/x64/Office2019/MAK
+	..
+0
+d/mnt/ees/x64/Office2019
+	..
+0
+d/mnt/ees/x64
+	unlicensed
+16
+d/mnt/ees/x64/unlicensed
+	Visio
+2
+d/mnt/ees/x64/unlicensed/Visio
+	2019
+4
+d/mnt/ees/x64/unlicensed/Visio/2019
+	VisioStd
+2
 d
 
 # Right window history (oldest to newest):
 D/home/a
 	var
 13
+D/home
+	..
+0
 D
 
 # Command line history (oldest to newest):
