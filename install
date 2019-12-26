@@ -2,7 +2,7 @@
 ################################################################################
 ### File: install
 ### Auth: a
-### Date: 2019-3-25
+### Date: 2019-12-25
 ### Info: Update local copies of the config file and creates symbolic links
 ################################################################################
 
@@ -20,48 +20,90 @@ if [ -z $HOMIE ]; then
 else
     HOMIE_DIR=$HOMIE
 fi
-CONFIGS=( config/* )
-SCRIPTS=( scripts/* )
+
+CONFIG_DIR="${HOME}/.config"
+SCRIPT_DIR="${HOME}/.local/scripts"
+
+if ! [ -d $CONFIG_DIR ]; then
+    printf "CREATE: Config dir not found; making config dir\n"
+    mkdir -p $CONFIG_DIR
+fi
+
+if ! [ -d $SCRIPT_DIR ]; then
+    printf "CREATE: Scripts dir not found; making scripts dir\n"
+    mkdir -p $SCRIPT_DIR
+fi
+
+shopt -s nullglob
+
+CONFIGS=( $HOMIE_DIR/config/* )
+SCRIPTS=( $HOMIE_DIR/scripts/* )
+
+shopt -u nullglob
+
+# if debug
+printf "Configs: \n"
+for c in ${CONFIGS[@]}; do
+    printf "\t${c}\n"
+done
+
+# if debug
+printf "Scripts: \n"
+for s in ${SCRIPTS[@]}; do
+    printf "\t${s}\n"
+done
+
+# update homie repo
+printf "UPDATING: Pulling latest version from Github"
+git pull 
 
 ################################################################################
 ### Config
 ################################################################################
 
 # Make sure the config directory exist
-if [ ! -d $HOME/.config ]; then
-    mkdir -p $HOME/.config
+if [ ! -d $CONFIG_DIR ]; then
+    mkdir -p $CONFIG_DIR
 else
-    cp -ru $HOME/.config $HOMIE_DIR/config
+
+    for entry in ${CONFIGS[@]}; do
+
+        # If it is a file, symlink in home
+        if [ -e $entry ] && ! [ -s $HOME/.$(basename ${entry}) ]; then
+	        printf "LINKING: ${entry} -> ${HOME}/.$(basename ${entry})\n"
+	        ln -sf "${entry}" "${HOME}/.$(basename ${entry})"
+
+        # If it is a dir, remove existing dir in .config and symlink 
+        elif [ -d $entry ] && ! [ -s $CONFIG_DIR/$(basename $entry) ]; then
+            printf "LINKING: ${entry} -> ${CONFIG_DIR}/$(basename ${entry})\n"
+            ln -sf "${entry}" "${CONFIG_DIR}/$(basename ${entry})"
+
+        else
+            printf "SKIPPING: $(basename ${entry}) is already symlinked\n"
+        fi
+    done
 fi
 
-for entry in ${CONFIGS[@]}; do
-    # If it is a file, symlink in home
-    if [ -f $entry ]; then
-	    printf "HOMIE - LINKING: ${HOMIE_DIR}/${entry} -> ${HOME}/.$(basename ${entry})\n"
-	    ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.$(basename ${entry})"
-    # If it is a dir, remove existing dir in .config and symlink 
-    else
-	printf "HOMIE - DELETED: ${HOME}/.${entry}\n"
-	rm -rf "${HOME}/.${entry}"
-	printf "HOMIE - LINKING: ${HOMIE_DIR}/${entry} -> ${HOME}/.${entry}\n"
-	ln -sf "${HOMIE_DIR}/${entry}" "${HOME}/.${entry}"
-    fi
-done
 
 ################################################################################
 ### Scripts
 ################################################################################
 
-if [ ! -d $HOME/.local/scripts ]; then
-    cp -ru  $HOME/.local/scripts/* $HOMIE_DIR/scripts
-    printf "HOMIE - Merged: ${HOME}/.local/scripts -> ${HOMIE_DIR}/scripts\n"
-    printf "HOMIE - DELETED: ${HOME}/.local/scripts\n"
-    rm -rf $HOME/.local/scripts
+if ! [ -d $SCRIPT_DIR ]; then
+    mkdir -p $SCRIPT_DIR
 fi
 
 # Symlink dir and leave it at that
-printf "HOMIE - LINKING: ${HOMIE_DIR}/scripts -> ${HOME}/.local/scripts\n" 
-ln -sf "${HOMIE_DIR}/scripts" "${HOME}/.local/scripts"
+for entry in ${SCRIPTS[@]}; do
+
+    if ! [ -s "${SCRIPT_DIR}/$(basename ${entry})" ]; then 
+        printf "LINKING: ${entry} -> ${SCRIPT_DIR}/$(basename ${entry})\n" 
+        ln -sf "${entry}" "${SCRIPT_DIR}/$(basename ${entry})"
+
+    else
+        printf "SKIPPING: $(basename ${entry}) is already symlinked\n"
+    fi
+done
 
 
 #vim: ts=4:ss=4:ff=sh
