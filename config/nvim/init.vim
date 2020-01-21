@@ -32,6 +32,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('dylanaraps/wal.vim')
 
   "Deoplete
   call dein#add('Shougo/deoplete.nvim')
@@ -54,6 +55,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 syntax enable
+colorscheme wal
 
 set number 
 set laststatus=2

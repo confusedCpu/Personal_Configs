@@ -24,7 +24,7 @@ else
     fi
 fi
 
-wal -i $WALLPAPER
+wal -i $WALLPAPER > /dev/null
 ln -sf $WALLPAPER $HOME/.wallpaper
 
 #vim: ts=4

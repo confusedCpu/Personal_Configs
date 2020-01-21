@@ -1,0 +1,29 @@
+[Data Source]
+DisplayName=martinak@vcu.edu
+Enabled=true
+Parent=b894caacff046b7a16b33938bc91d540dd70487b
+
+[Mail Submission]
+SentFolder=folder://local/Sent
+TransportUid=564355e686986b5ac90322844c2b80338c754ff1
+RepliesToOriginFolder=false
+UseSentFolder=true
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://local/Drafts
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=
+StartBottom=inconsistent
+TopSignature=inconsistent
+Language=
+
+[Mail Identity]
+Address=martinak@vcu.edu
+Aliases=
+Name=
+Organization=
+ReplyTo=
+SignatureUid=none

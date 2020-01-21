@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# Handle XRandR randomized monitor names
+MONITOR=$(polybar -m | tail -1 | sed -e "s/:.*$//g")
+
 # Terminate already running bar instances
 killall -q polybar
 

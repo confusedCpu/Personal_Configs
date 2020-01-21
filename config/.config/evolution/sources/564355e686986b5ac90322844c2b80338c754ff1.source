@@ -1,0 +1,19 @@
+[Data Source]
+DisplayName=martinak@vcu.edu
+Enabled=true
+Parent=b894caacff046b7a16b33938bc91d540dd70487b
+
+[Authentication]
+Host=smtp.gmail.com
+Method=XOAUTH2
+Port=465
+ProxyUid=system-proxy
+RememberPassword=true
+User=martinak@vcu.edu
+CredentialName=
+
+[Security]
+Method=ssl-on-alternate-port
+
+[Mail Transport]
+BackendName=smtp

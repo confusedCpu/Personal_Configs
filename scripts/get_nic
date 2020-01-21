@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+declare nics=( $(nmcli --terse --fields DEVICE,TYPE,STATE dev) )
+selected_nic=""
+
+
+for nic in "${nics[@]}"; do
+    IFS=':'
+    read -ra element <<< "${nic}"
+    echo "Device: ${element[0]} Type: ${element[1]} State: ${element[2]}"
+    if [ "${element[2]}" == 'connected' ]; then 
+        if [ "${element[1]}" == 'ethernet' ]; then
+            #$selected_nic="${nic[0]}"
+            #return $selected_nic
+            printf "${element[0]}"
+            exit 0
+
+        elif [ "${element[1]} == 'wifi'" ]; then
+            printf "${element[0]}"
+            exit 0
+
+        fi
+    fi
+done

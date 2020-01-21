@@ -30,132 +30,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home
-	a
-1
-d/home/a
-	Sketches
-8
-d/home/a/Sketches
-	..
-0
-d/home/a
-	..
-0
-d/home
-	..
-0
-d/
-	home
-4
-d/home
-	a
-1
-d/home/a
-	Pictures
-6
-d/home/a/Pictures
-	Datasheets
-1
-d/home/a/Pictures/Datasheets
-	..
-0
-d/home/a/Pictures
-	..
-0
-d/home/a
-	..
-0
-d/home
-	..
-0
-d/
-	mnt
-8
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	Data
-1
-d/mnt/Data
-	..
-0
-d/mnt
-	..
-0
-d/
-	usr
-17
-d/usr
-	bin
-1
-d/usr/bin
-	i3-sensible-terminal
-74
-d/usr
-	bin
-1
-d/
-	home
-4
-d/home
-	a
-1
-d/home/a
-	.bashrc
-35
-d/home
-	a
-1
-d/
-	mnt
-8
-d/mnt
-	Data
-1
-d/mnt/Data
-	Roms
-29
-d/mnt/Data/Roms
-	GBA
-1
-d/mnt/Data/Roms/GBA
-	..
-0
-d/mnt/Data/Roms
-	GameCube-Wii
-2
-d/mnt/Data/Roms/GameCube-Wii
-	..
-0
-d/mnt/Data/Roms
-	PS2
-3
-d/mnt/Data/Roms/PS2
-	..
-0
-d/mnt/Data/Roms
-	GBA
-1
-d/mnt/Data/Roms/GBA
-	..
-0
-d/mnt/Data/Roms
-	GBA
-1
-d/mnt/Data
-	ISO
-17
-d/mnt/Data/ISO
-	OS
-4
-d/mnt/Data/ISO/OS
-	Windows
-3
 d/mnt/Data/ISO/OS/Windows
 	fr_windows_8_1_enterprise_x86_dvd_2972298.iso
 10
@@ -330,6 +204,132 @@ d/mnt/ees/x64/unlicensed/Visio
 d/mnt/ees/x64/unlicensed/Visio/2019
 	VisioStd
 2
+d/mnt
+	..
+0
+d/
+	home
+4
+d/home
+	martinak@RAMS.adp.vcu.edu
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	..
+0
+d/home
+	martinak@RAMS.adp.vcu.edu
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	..
+0
+d/home
+	martinak@RAMS.adp.vcu.edu
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	..
+0
+d/home
+	tech
+2
+d/
+	etc
+3
+d/etc
+	.java
+1
+d/etc/.java
+	.systemPrefs
+1
+d/etc/.java/.systemPrefs
+	..
+0
+d/etc/.java
+	..
+0
+d/etc
+	ImageMagick-6
+2
+d/etc/ImageMagick-6
+	coder.xml
+1
+d/etc
+	ImageMagick-6
+2
+d/
+	home
+4
+d/home
+	martinak@RAMS.adp.vcu.edu
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	Pictures
+16
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu/Pictures/wallpapers
+	..
+0
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	Pictures
+16
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu/Pictures/wallpapers
+	..
+0
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	Pictures
+16
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu/Pictures/wallpapers
+	fish.png
+1
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	Documents
+13
+d/home/martinak@RAMS.adp.vcu.edu/Documents
+	..
+0
+d/home/martinak@RAMS.adp.vcu.edu
+	Desktop
+12
+d/home/martinak@RAMS.adp.vcu.edu/Desktop
+	..
+0
+d/home/martinak@RAMS.adp.vcu.edu
+	Downloads
+14
+d/home/martinak@RAMS.adp.vcu.edu/Downloads
+	..
+0
+d/home/martinak@RAMS.adp.vcu.edu
+	Pictures
+16
+d/home/martinak@RAMS.adp.vcu.edu/Pictures
+	wallpapers
+1
+d/home/martinak@RAMS.adp.vcu.edu
+	Pictures
+16
+d/home
+	martinak@RAMS.adp.vcu.edu
+1
+d/
+	home
+4
 d
 
 # Right window history (oldest to newest):
