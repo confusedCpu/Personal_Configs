@@ -84,7 +84,7 @@ label               = %date% %time%
 
 [module/network]
 type                = internal/network
-interface           = wlp58s0
+interface           = wlp3s0
 interval            = 1.0
 label-connected     = %essid% ↘ %downspeed% ↗ %upspeed%
 

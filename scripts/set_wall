@@ -1,15 +1,32 @@
 #!/usr/bin/bash
 ################################################################################
-### File: set_wall
-### Auth: a
-### Date: 2019-03-24
+### File:       set_wall
+### Auth:       a
+### Date:       2019-03-24
+### Updated:    2020-01-22
 ###
 ### Info: Sets the wallpaper, corresponding color scheme with pywal, and
 ###	  creates a symbolic link to the current wallpaper at $HOME/.wallpaper
+###
+### Requires: imagemagick pywal
+### Optional: libnotify
 ################################################################################
 
 # link to generated xresources
 XRESOURCES="${HOME}/.cache/wal/colors.Xresources"
+
+
+# Get current screen geometry so that we know what resolution the image needs to 
+# be converted to
+get_screen_geometry () {
+
+    # Captures a string like 1920x1080+0+0
+    SCREEN_GEOMETRY=$( xrandr | grep 'connected primary' | awk '{ print $4 }' )
+    SCREEN_WIDTH=$( echo $SCREEN_GEOMETRY | grep -oP '\d*(?=x)' )
+    SCREEN_HEIGHT=$( echo $SCREEN_GEOMETRY | grep -oP '(?<=x)\d*(?=\+)' )
+
+}
+
 
 # If wallpaper is provided by stdin and is a real file
 if [[ $# == 1 && -f "${1}" ]]; then
@@ -18,17 +35,27 @@ else
     # Get the contents of the wallpaper dir from the env variable and pick one 
     # at random
     if [ -d $WALLPAPERS ]; then 
-	IMAGES=($WALLPAPERS/*)
-	let INDEX=$(shuf -i 0-${#IMAGES[@]} -n 1)-1
-	WALLPAPER=${IMAGES[$INDEX]}
+	    IMAGES=($WALLPAPERS/*)
+	    let INDEX=$(shuf -i 0-${#IMAGES[@]} -n 1)-1
+	    WALLPAPER=${IMAGES[$INDEX]}
     else
-	printf "ERROR: WALLPAPERS variable not set or dir does not exist\n"
-	notify-send "ERROR: WALLPAPERS variable not set or dir does not exist"
+	    printf "ERROR: WALLPAPERS variable not set or dir does not exist\n"
+	    notify-send "ERROR: WALLPAPERS variable not set or dir does not exist"
     fi
 fi
 
 wal -i $WALLPAPER > /dev/null
-ln -sf $WALLPAPER $HOME/.wallpaper
+
+# Converts an image to PNG format sets the height to the screen height and 
+# resizes the width if it is less than the screen width and saves the new
+# image to $HOME/.wallpaper so that is can be used by i3lock
+get_screen_geometry
+convert -format 'PNG*' \
+    -resize "x${SCREEN_HEIGHT}" \
+    -resize "${SCREEN_WIDTH}x<" \
+    "${WALLPAPER}" "${HOME}/Pictures/wallpapers/lock_screen.png"
+
+# Link the generated xresources
 ln -sf $XRESOURCES $HOME/.Xresources
 
 #vim: ts=4
