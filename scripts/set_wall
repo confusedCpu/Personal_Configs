@@ -8,6 +8,9 @@
 ###	  creates a symbolic link to the current wallpaper at $HOME/.wallpaper
 ################################################################################
 
+# link to generated xresources
+XRESOURCES="${HOME}/.cache/wal/colors.Xresources"
+
 # If wallpaper is provided by stdin and is a real file
 if [[ $# == 1 && -f "${1}" ]]; then
     WALLPAPER="${1}"
@@ -26,5 +29,6 @@ fi
 
 wal -i $WALLPAPER > /dev/null
 ln -sf $WALLPAPER $HOME/.wallpaper
+ln -sf $XRESOURCES $HOME/.Xresources
 
 #vim: ts=4
