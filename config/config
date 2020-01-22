@@ -1,0 +1,117 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Vars
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[colors]
+background      = ${xrdb:color0:#222}
+foreground      = ${xrdb:color7:#222}
+foreground-alt  = ${xrdb:color7:#222}
+primary         = ${xrdb:color1:#222}
+secondary       = ${xrdb:color2:#222}
+alert           = ${xrdb:color3:#222}
+
+[fonts]
+font0           = Fira Code,Fira Code Retina:style=Retina,Regular:size=10
+font1           = Siji:style=Regular:size=10
+font2           = PowerlineSymbols:style=Medium:size=10
+font3           = FontAwesome:style=Regular:size=10
+
+[icons]
+divider_left    = 
+divider_right   = 
+downspeed       = ↘ 
+upspeed         = ↗
+wifi_connect    = 
+sound           =  
+sound_muted     = 
+charging        = 
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Bars
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/top]
+bottom              = false
+fixed-center        = true
+padding             = 2
+module-margin       = 1
+
+;background          = #5a000000
+;foreground          = #eee
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+underline-size      = 2
+underline-color     = #eee
+
+font-0              = Fira Code,Fira Code Retina:style=Retina,Regular:size=10
+font-1              = Siji:style=Regular:size=10
+font-2              = PowerlineSymbols:style=Medium:size=10
+font-3              = FontAwesome:style=Medium:size=10
+
+modules-left        = xworkspaces xwindow
+modules-center      = 
+modules-right       = network pulseaudio battery date power
+
+tray-position       = right
+tray-transparent    = true
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Module settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+; charge and discarge animation require siji font https://github.com/stark/siji
+[module/battery]
+type                = internal/battery
+battery             = BAT0
+adapter             = AC
+poll-interval       = 5
+label-charging      = A/C: %percentage%%
+label-discharging   = Bat: %percentage%%
+
+[module/date]
+type                = internal/date
+interval            = 1.0
+date                = %Y-%m-%d
+time                = %H:%M:%S
+label               = %date% %time%
+
+
+[module/network]
+type                = internal/network
+interface           = wlp58s0
+interval            = 1.0
+label-connected     = %essid% ↘ %downspeed% ↗ %upspeed%
+
+[module/power]
+type = custom/menu
+menu-0-0 = 
+menu-0-0-exec = menu-open-1
+menu-1-0 = logoff
+
+[module/pulseaudio]
+type                = internal/pulseaudio
+use-ui-max          = true
+interval            = 5
+label-volume        =  %percentage%%
+label-muted         =  --%
+click-right         = pavucontrol &
+
+[module/xwindow]
+type                = internal/xwindow
+label-maxlen        = 25
+
+[module/xworkspaces]
+type                        = internal/xworkspaces
+label-active                = %icon% %name%
+label-active-background     = ${colors.secondary}
+label-padding               = 4
+icon-0                      = 1;一
+icon-1                      = 2;二
+icon-2                      = 3;三
+icon-3                      = 4;四

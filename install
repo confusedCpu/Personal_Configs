@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/bash 
 ################################################################################
 ### File: install
 ### Auth: a
@@ -68,15 +68,16 @@ else
 
     for entry in ${CONFIGS[@]}; do
 
-        # If it is a file, symlink in home
-        if [ -e $entry ] && ! [ -s $HOME/.$(basename ${entry}) ]; then
-	        printf "LINKING: ${entry} -> ${HOME}/.$(basename ${entry})\n"
-	        ln -sf "${entry}" "${HOME}/.$(basename ${entry})"
-
-        # If it is a dir, remove existing dir in .config and symlink 
-        elif [ -d $entry ] && ! [ -s $CONFIG_DIR/$(basename $entry) ]; then
+	# If it is a dir, remove existing dir in .config and symlink 
+        if [ -d $entry ] && ! [ -h $CONFIG_DIR/$(basename $entry) ]; then
             printf "LINKING: ${entry} -> ${CONFIG_DIR}/$(basename ${entry})\n"
             ln -sf "${entry}" "${CONFIG_DIR}/$(basename ${entry})"
+
+
+        # If it is a file, symlink in home
+        elif [ -f $entry ] && ! [ -h $HOME/.$(basename ${entry}) ]; then
+	        printf "LINKING: ${entry} -> ${HOME}/.$(basename ${entry})\n"
+	        ln -sf "${entry}" "${HOME}/.$(basename ${entry})"
 
         else
             printf "SKIPPING: $(basename ${entry}) is already symlinked\n"
