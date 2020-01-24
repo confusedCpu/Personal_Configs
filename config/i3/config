@@ -235,6 +235,8 @@ exec --no-startup-id ~/.fehbg &
 exec_always --no-startup-id /home/a/.local/scripts/polybar_launch &
 exec --no-startup-id compton &
 #exec --no-startup-id nm-applet &
-exec --no-startup-id xscreensaver &
+#exec --no-startup-id xscreensaver &
 exec --no-startup-id redshift &
 #exec --no-startup-id urxvtd -q -o -f
+#exec --no-startup-id xautolock -time 15 "i3lock --ignore-empty-password --image ~/Pictures/wallpapers/lock_screen.png"
+exec_always --no-startup-id xss-lock --notifier="inotify --urgency" i3lock -e -i ~/Pictures/wallpapers/lock_screen.png
