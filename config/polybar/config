@@ -58,7 +58,7 @@ font-3  = ${fonts.font3}
 
 modules-left        = i3 
 modules-center      = xwindow
-modules-right       = network pulseaudio battery date power
+modules-right       = network pulseaudio battery1 battery0 date power
 
 tray-position       = right
 tray-transparent    = true
@@ -70,13 +70,23 @@ tray-transparent    = true
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
 ; charge and discarge animation require siji font https://github.com/stark/siji
-[module/battery]
+[module/battery0]
 type                = internal/battery
 battery             = BAT0
 adapter             = AC
 poll-interval       = 5
 label-charging      = A/C: %percentage%%
-label-discharging   = Bat: %percentage%%
+label-discharging   = Bat0: %percentage%%
+
+
+[module/battery1]
+type                = internal/battery
+battery             = BAT1
+adapter             = AC
+poll-interval       = 5
+label-charging      = A/C: %percentage%%
+label-discharging   = Bat1: %percentage%%
+
 
 [module/date]
 type                = internal/date
@@ -91,6 +101,7 @@ type                = internal/network
 interface           = wlp3s0
 interval            = 1.0
 label-connected     = %essid% ↘ %downspeed% ↗ %upspeed%
+
 
 [module/power]
 type = custom/menu
